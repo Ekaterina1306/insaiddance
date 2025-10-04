@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Танцевальный коллектив "INSAID"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1da3b0, #1ea19d);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: #4A5568;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #435ea9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2D3748;
+            font-size: 2.5rem;
+        }
+        
+        .quote-block {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .quote-block:hover {
+            transform: translateY(-5px);
+        }
+        
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .direction-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .direction-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .direction-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4365a9;
+        }
+        
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .teacher-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .teacher-img {
+            height: 250px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            overflow: hidden;
+        }
+        
+        .teacher-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .teacher-info {
+            padding: 1.5rem;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        
+        .contact-item {
+            margin: 1.5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #436da9;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #285ac0;
+        }
+        
+        footer {
+            background-color: #438da5;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Танцевальный коллектив "INSAID"</h1>
+            <p>Искусство движения, любовь к танцу</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#directions">Направления</a></li>
+            <li><a href="#teachers">Педагоги</a></li>
+            <li><a href="#schedule">Расписание</a></li>
+            <li><a href="#gallery">Фотогалерея</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section id="about" class="section">
+            <h2 class="section-title">О нашем коллективе</h2>
+            <div class="quote-block">
+                <p>Танцевальный коллектив "INSAID" был основан в 2023 году и за это время стал одним из ведущих коллективов города. Мы объединяем людей разных возрастов и профессий, которых связывает любовь к танцу.</p>
+                <p>Наша миссия - раскрыть танцевальный потенциал каждого участника, развить физические способности, артистизм и чувство ритма. Мы верим, что танец - это не просто движение под музыку, а способ самовыражения, общения и личностного роста.</p>
+            </div>
+        </section>
+        
+        <section id="directions" class="section">
+            <h2 class="section-title">Танцевальные направления</h2>
+            <div class="directions-grid">
+                <div class="direction-card">
+                    <div class="direction-icon">💃</div>
+                    <h3>Латиноамериканские танцы</h3>
+                    <p>Сальса, бачата, меренге - зажигательные ритмы, которые не оставят вас равнодушными.</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">🩰</div>
+                    <h3>Классическая хореография</h3>
+                    <p>Основы балета, развитие грации, пластичности и правильной осанки.</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">⚡</div>
+                    <h3>Современные танцы</h3>
+                    <p>Хип-хоп, джаз-фанк, контемпорари - актуальные направления для молодежи.</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">👯</div>
+                    <h3>Народные танцы</h3>
+                    <p>Русские, кавказские танцы - погружение в культурное наследие.</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">💫</div>
+                    <h3>Спортивные бальные танцы</h3>
+                    <p>Европейская и латиноамериканская программы для детей и взрослых.</p>
+                </div>
+                
+                <div class="direction-card">
+                    <div class="direction-icon">🎭</div>
+                    <h3>Танцевальный театр</h3>
+                    <p>Соединение хореографии, актерского мастерства и сценического искусства.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="teachers" class="section">
+            <h2 class="section-title">Наши педагоги</h2>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://i.pinimg.com/736x/77/c6/ae/77c6ae355c8571866f9f7a42d376b348.jpg" alt="Анна Иванова">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Анна Иванова</h3>
+                        <p>Художественный руководитель, педагог по классическому и современному танцу.</p>
+                        <p>Опыт работы - 12 лет.</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://files.constantcontact.com/0a692021201/6d10568d-4b2f-460a-93d4-22e77544333f.jpg" alt="Дмитрий Петров">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Дмитрий Петров</h3>
+                        <p>Педагог по латиноамериканским танцам. Чемпион России по спортивным бальным танцам.</p>
+                        <p>Опыт работы - 7 лет.</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://i.pinimg.com/736x/30/96/52/3096529ba8728bcae0e95efeb3ed9bb5.jpg" alt="Ольга Сидорова">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Ольга Сидорова</h3>
+                        <p>Педагог по народному танцу. Выпускница Московской академии хореографии.</p>
+                        <p>Опыт работы - 5 лет.</p>
+                    </div>
+                </div>
+                
+                <div class="teacher-card">
+                    <div class="teacher-img">
+                        <img src="https://avatars.mds.yandex.net/i?id=05082a7d100ab6539a5ce71b03d87c66_l-5241343-images-thumbs&n=13" alt="Максим Козлов">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Максим Козлов</h3>
+                        <p>Педагог по хип-хопу и уличным танцам. Участник международных баттлов и чемпионатов.</p>
+                        <p>Опыт работы - 10 лет.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="schedule" class="section">
+            <h2 class="section-title">Расписание занятий</h2>
+            <div class="quote-block">
+                <h3>Детские группы (4-12 лет)</h3>
+                <p>Понедельник, среда: 16:00-17:00 (начальная подготовка)</p>
+                <p>Вторник, четверг: 17:00-18:30 (продолжающие)</p>
+                
+                <h3>Подростковые группы (13-17 лет)</h3>
+                <p>Понедельник, среда: 18:00-19:30 (современные танцы)</p>
+                <p>Вторник, пятница: 17:30-19:00 (бальные танцы)</p>
+                
+                <h3>Взрослые группы (18+)</h3>
+                <p>Понедельник, среда: 19:30-21:00 (латиноамериканские танцы)</p>
+                <p>Вторник, четверг: 19:00-20:30 (народные танцы)</p>
+                <p>Пятница: 19:00-21:00 (современные направления)</p>
+                <p>Суббота: 11:00-13:00 (классическая хореография)</p>
+            </div>
+        </section>
+        
+        <section id="gallery" class="section">
+            <h2 class="section-title">Галерея</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://gym-kk.ru/settings/acrobatics/images/2601202402.jpg" alt="Танцевальный коллектив">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cdn.profile.ru/wp-content/uploads/2022/08/Festival-rossijskoj-kultury-otkrylsya-v-Yaponii.jpg" alt="Выступление на сцене">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3064-6436-4336-b464-323964303235/C99332D2-94B6-4614-9.JPG" alt="Танцевальный класс">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/c7/af/81/c7af8181600087469f6e31a4a9d5385d.jpg" alt="Танцевальный конкурс">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/57/64/d3/5764d37e09a07b024613a05368a98738.jpg" alt="Танцевальный мастер-класс">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i1.wp.com/dancemagazine.com.au/wp-content/uploads/2017/07/The-Bradas-Dance-Crew-at-the-2016-World-Hip-Hop-Dance-Championship.-Photo-courtesy-of-Hip-Hop-International..jpg?fit=1000%2C542&ssl=1" alt="Танцевальный фестиваль">
+                </div>
+            </div>
+        </section>
+        
+        <section id="contacts" class="section">
+            <h2 class="section-title">Контакты и запись</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Адрес студии</h3>
+                    <p>г. Ангарск, ул. Зурабова, д. 17</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Телефон для связи</h3>
+                    <p>+7 (952) 629 60 26</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Электронная почта</h3>
+                    <p>INSAID.DANCE@mail.ru</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Пробное занятие</h3>
+                    <p>Первое пробное занятие - бесплатно! Запишитесь прямо сейчас:</p>
+                    <a href="tel:+79526296026" class="btn">Позвонить нам</a>
+                    <a href="https://t.me/goryachevaekaterina" target="_blank" class="btn">Написать в Telegram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Танцевальный коллектив "INSAID"</p>
+            <div class="social-links">
+                <a href="#" aria-label="ВКонтакте">VK</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="YouTube">YouTube</a>
+                <a href="#" aria-label="Telegram">Telegram</a>
+            </div>
+            <p>© 2025 Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
